@@ -1,25 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { ToastContainer } from "react-toastify";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+
+import { Register, Login, Waiting } from "./pages";
+import { PublicRoutes } from "./routes";
+import { LayoutAdmin, AdminPanel, UserDetails, Projects } from "./admin";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ToastContainer />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<PublicRoutes />}>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/waiting" element={<Waiting />} />
+          </Route>
+          <Route
+            path="/admin/*"
+            element={
+              <LayoutAdmin>
+                <Routes>
+                  <Route path="/" element={<AdminPanel />} />
+                  <Route path="/project" element={<Projects />} />
+                  <Route path="/details/:id" element={<UserDetails />} />
+                  {/* <Route path="/list/:id" element={<ListPage />} />
+              <Route path="/detail/:id" element={<ReportPage />} /> */}
+                  {/* <Route path="/detailModal/:id" element={<DetailModel />} /> */}
+                  {/* Add more routes here */}
+                </Routes>
+              </LayoutAdmin>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
