@@ -19,7 +19,11 @@ interface AuthState {
   isAdmin: string | null;
 }
 
-const initialState: AuthState = { accessToken, refreshToken, isAdmin };
+const initialState: AuthState = {
+  accessToken,
+  refreshToken,
+  isAdmin,
+};
 
 interface SignInPayload {
   access: string;
