@@ -23,7 +23,7 @@ export function Login() {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const { t } = useTranslation(); // Tarjima qilish uchun hook
+  const { t } = useTranslation();
 
   const handleOnSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

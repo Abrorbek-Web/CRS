@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Header } from "../components";
 import { FaTachometerAlt, FaClipboardList } from "react-icons/fa";
 
@@ -7,6 +8,8 @@ const LayoutAdmin: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const location = useLocation();
 
   const isActive = (path: string) => location.pathname === path;
+
+  const { t } = useTranslation();
 
   const dashboardStyle = {
     color: isActive("/admin") ? "black" : "#777",
@@ -32,7 +35,7 @@ const LayoutAdmin: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                     <span>
                       <FaTachometerAlt />
                     </span>{" "}
-                    <span>Dashboard</span>
+                    <span>{t("adminSidebar.dashboard")}</span>
                   </div>
                 </Link>
               </li>
@@ -43,7 +46,7 @@ const LayoutAdmin: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                     <span>
                       <FaClipboardList />
                     </span>{" "}
-                    <span>Projects</span>
+                    <span>{t("adminSidebar.projects")}</span>
                   </div>
                 </Link>
               </li>

@@ -1,40 +1,43 @@
 import React, { useEffect, useState } from "react";
 import { Table, Button } from "antd";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import ArticleService, { User } from "../services/articles";
 
 const AdminPanel: React.FC = () => {
   const [details, setDetails] = useState<User[]>([]);
   const navigate = useNavigate();
 
+  const { t } = useTranslation();
+
   const columns = [
     {
-      title: "ID",
+      title: t("adminPanel.id"),
       dataIndex: "id",
       key: "id",
     },
     {
-      title: "First name",
+      title: t("adminPanel.firstName"),
       dataIndex: "first_name",
       key: "first_name",
     },
     {
-      title: "Last name",
+      title: t("adminPanel.lastName"),
       dataIndex: "last_name",
       key: "last_name",
     },
     {
-      title: "Phone Number",
+      title: t("adminPanel.phoneNumber"),
       dataIndex: "phone_number",
       key: "phone_number",
     },
     {
-      title: "Email",
+      title: t("adminPanel.email"),
       dataIndex: "email",
       key: "email",
     },
     {
-      title: "Details",
+      title: t("adminPanel.details"),
       key: "details",
       render: (_: any, record: User) => (
         <Button
@@ -46,7 +49,7 @@ const AdminPanel: React.FC = () => {
       ),
     },
     {
-      title: "Status",
+      title: t("adminPanel.status"),
       dataIndex: "status",
       key: "status",
     },
@@ -67,7 +70,7 @@ const AdminPanel: React.FC = () => {
 
   return (
     <div className="p-4">
-      <h1 className="mb-4 text-[2rem]">Admin Panel</h1>
+      <h1 className="mb-4 text-[2rem]">{t("adminPanel.adminPanel")}</h1>
       <Table
         dataSource={details}
         columns={columns}

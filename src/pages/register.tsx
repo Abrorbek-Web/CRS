@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import bgImg from "../assets/bg-image.jpg";
 import { register } from "../services/authService";
 import { useNavigate } from "react-router-dom";
 import Select, { SingleValue } from "react-select";
+import { LanguageSwitcher } from "../components";
 
 interface User {
   email: string;
@@ -58,6 +60,8 @@ export function Register() {
 
   const [isShowingPassword, setIsShowingPassword] = useState<boolean>(false);
 
+  const { t } = useTranslation();
+
   const handleOnSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -87,12 +91,12 @@ export function Register() {
 
     register(user)
       .then(() => {
-        toast.success("Successfully registered!");
+        toast.success(t("register.registerSuccess"));
         navigate("/login");
       })
       .catch((err) => {
         console.log(err);
-        toast.error("Problem to register.");
+        toast.error(t("login.loginFailed"));
       });
   };
 
@@ -105,7 +109,7 @@ export function Register() {
         <div className="bg-white rounded-lg shadow md:mt-0 xl:p-0 w-full max-w-[800px]">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 className="text-xl font-bold leading-tight tracking-tight md:text-2xl">
-              Register
+              {t("register.title")}
             </h1>
             <form onSubmit={handleOnSubmit} className="space-y-4 md:space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -114,7 +118,7 @@ export function Register() {
                     htmlFor="Email"
                     className="block mb-2 text-sm font-medium text-gray-900"
                   >
-                    Email
+                    {t("register.email")}
                   </label>
                   <input
                     value={email}
@@ -123,7 +127,7 @@ export function Register() {
                     name="Email"
                     id="Email"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                    placeholder="Enter your email..."
+                    placeholder={t("register.placeHolderEmail")}
                     required
                   />
                 </div>
@@ -132,7 +136,7 @@ export function Register() {
                     htmlFor="FirstName"
                     className="block mb-2 text-sm font-medium text-gray-900"
                   >
-                    Firstname
+                    {t("register.firstName")}
                   </label>
                   <input
                     value={firstName}
@@ -141,7 +145,7 @@ export function Register() {
                     name="FirstName"
                     id="FirstName"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                    placeholder="Enter your firstname..."
+                    placeholder={t("register.placeHolderFirst")}
                     required
                   />
                 </div>
@@ -151,7 +155,7 @@ export function Register() {
                     htmlFor="lastName"
                     className="block mb-2 text-sm font-medium text-gray-900"
                   >
-                    Lastname
+                    {t("register.lastName")}
                   </label>
                   <input
                     value={lastName}
@@ -160,7 +164,7 @@ export function Register() {
                     name="lastName"
                     id="lastName"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                    placeholder="Enter your lastname..."
+                    placeholder={t("register.placeHolderLast")}
                     required
                   />
                 </div>
@@ -170,11 +174,11 @@ export function Register() {
                     htmlFor="position"
                     className="block mb-2 text-sm font-medium text-gray-900"
                   >
-                    Position
+                    {t("register.position")}
                   </label>
                   <Select
                     className="flex-1 text-sm"
-                    placeholder="Select Position..."
+                    placeholder={t("register.placeHolderSelectPosition")}
                     options={positionOptions}
                     onChange={(e: SingleValue<Option>) => {
                       if (e === null) {
@@ -191,7 +195,7 @@ export function Register() {
                     htmlFor="phoneNumber"
                     className="block mb-2 text-sm font-medium text-gray-900"
                   >
-                    Phone
+                    {t("register.phone")}
                   </label>
                   <input
                     value={phoneNumber}
@@ -200,7 +204,7 @@ export function Register() {
                     name="phoneNumber"
                     id="phoneNumber"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                    placeholder="Enter your phone..."
+                    placeholder={t("register.placeHolderPhone")}
                     required
                     autoComplete="off"
                   />
@@ -210,7 +214,7 @@ export function Register() {
                     htmlFor="password"
                     className="block mb-2 text-sm font-medium text-gray-900"
                   >
-                    Password
+                    {t("register.password")}
                   </label>
                   <div className="relative">
                     <input
@@ -219,7 +223,7 @@ export function Register() {
                       type={isShowingPassword ? "text" : "password"}
                       name="password"
                       id="password"
-                      placeholder="Enter your password..."
+                      placeholder={t("register.placeHolderPassword")}
                       className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                       required
                     />
@@ -241,11 +245,11 @@ export function Register() {
                     htmlFor="company"
                     className="block mb-2 text-sm font-medium text-gray-900"
                   >
-                    Company
+                    {t("register.company")}
                   </label>
                   <Select
                     className="flex-1 text-sm"
-                    placeholder="Select Company..."
+                    placeholder={t("register.placeHolderCompany")}
                     options={companyOptions}
                     onChange={(e: SingleValue<Option>) => {
                       if (e === null) {
@@ -271,20 +275,23 @@ export function Register() {
                 }
                 className="w-full text-white bg-primary-600 hover:bg-primary-700 bg-blue-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
               >
-                Register
+                {t("register.register")}
               </button>
               <p className="text-sm font-light">
-                You already have an account?{" "}
+                {t("register.haveAccount")}
                 <Link
                   to="/login"
                   className="font-medium text-primary-600 hover:underline"
                 >
-                  Log In
+                  {t("register.logIn")}
                 </Link>
               </p>
             </form>
           </div>
         </div>
+      </div>
+      <div className="absolute right-12 top-12">
+        <LanguageSwitcher />
       </div>
     </section>
   );
