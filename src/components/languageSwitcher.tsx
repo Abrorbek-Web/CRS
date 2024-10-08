@@ -11,6 +11,7 @@ const languages = [
 export function LanguageSwitcher() {
   const { i18n } = useTranslation();
   const dispatch = useDispatch();
+  const initial = localStorage.getItem("i18nextLng");
   const [selectedLanguage, setSelectedLanguage] = useState<string>("en");
   const [showDropdown, setShowDropdown] = useState<boolean>(false);
 

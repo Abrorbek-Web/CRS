@@ -2,13 +2,14 @@ import { useState, FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import bgImg from "../assets/bg-img.png";
 import { useDispatch } from "react-redux";
-import { signIn, signOut } from "../slices/authSlice";
-import { login } from "../services/authService";
 import { PropagateLoader } from "react-spinners";
 import { useTranslation } from "react-i18next";
+
+import bgImg from "../assets/bg-img.png";
 import { LanguageSwitcher } from "../components";
+import { login } from "../services/authService";
+import { signIn, signOut } from "../slices/authSlice";
 
 function checkEmailDomain(email: string): boolean {
   const validDomains = ["@ent-en.com", "@uzliti-en.com", "@eriell.com"];
@@ -139,7 +140,7 @@ export function Login() {
                   to="/register"
                   className="font-medium text-primary-600 hover:underline"
                 >
-                  {t("login.register")}
+                  {t("login.login")}
                 </Link>
               </p>
             </form>

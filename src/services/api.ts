@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import { getAccessToken } from "../helpers/persistence-storage";
 import { signOut } from "../slices/authSlice";
 import store from "../store";

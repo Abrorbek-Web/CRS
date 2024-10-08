@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Table, Button } from "antd";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+
 import ArticleService, { User } from "../services/articles";
 
 const AdminPanel: React.FC = () => {

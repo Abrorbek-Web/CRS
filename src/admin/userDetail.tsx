@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { Button, Select, Form, Input, Table } from "antd";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
-import avatar from "../assets/avatar.png";
 import { Modal } from "antd";
 import { ColumnsType } from "antd/es/table";
-import ArticleService, { User } from "../services/articles";
 import { useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
+import avatar from "../assets/avatar.png";
+import ArticleService, { User } from "../services/articles";
+import { t } from "i18next";
 
 interface UserWork {
   id: number;
@@ -25,8 +28,6 @@ export function UserDetails() {
   const [password, setPassword] = useState<string>("");
   const [open, setOpen] = useState<boolean>(false);
   const { id } = useParams<{ id: string }>();
-
-  console.log(typeof id);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -152,24 +153,6 @@ export function UserDetails() {
 }
 
 // Jadval uchun kolonkalarning interfeysi
-const columns: ColumnsType<UserWork> = [
-  { title: "ID", dataIndex: "id", key: "id", width: 60 },
-  {
-    title: "Document Number",
-    dataIndex: "document_number",
-    key: "document_number",
-    width: 300,
-  },
-  {
-    title: "Start Time",
-    dataIndex: "start_time",
-    key: "start_time",
-    width: 160,
-  },
-  { title: "End Time", dataIndex: "end_time", key: "end_time", width: 160 },
-  { title: "Created Date", dataIndex: "created", key: "created", width: 160 },
-  { title: "Status", dataIndex: "status", key: "status", width: 130 },
-];
 
 const userWorks: UserWork[] = [
   {
@@ -186,6 +169,41 @@ const userWorks: UserWork[] = [
 
 // Foydalanuvchilar ro'yxati komponenti
 const Users: React.FC = () => {
+  const { t } = useTranslation();
+  const columns: ColumnsType<UserWork> = [
+    { title: t("userDetail.id"), dataIndex: "id", key: "id", width: 60 },
+    {
+      title: t("userDetail.documentNumber"),
+      dataIndex: "document_number",
+      key: "document_number",
+      width: 300,
+    },
+    {
+      title: t("userDetail.startTime"),
+      dataIndex: "start_time",
+      key: "start_time",
+      width: 160,
+    },
+    {
+      title: t("userDetail.endTime"),
+      dataIndex: "end_time",
+      key: "end_time",
+      width: 160,
+    },
+    {
+      title: t("userDetail.createdDate"),
+      dataIndex: "created",
+      key: "created",
+      width: 160,
+    },
+    {
+      title: t("userDetail.status"),
+      dataIndex: "status",
+      key: "status",
+      width: 130,
+    },
+  ];
+
   return (
     <div className="mt-4 pb-8">
       <Table

@@ -8,9 +8,9 @@ import {
   Modal as AntdModal,
 } from "antd";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import avatar from "../assets/bg-img.png";
 import { ClipLoader } from "react-spinners";
-import "react-toastify/dist/ReactToastify.css";
+
+import avatar from "../assets/bg-img.png";
 
 // Helper function to format dates
 const formatDate = (isoDate: string) => {

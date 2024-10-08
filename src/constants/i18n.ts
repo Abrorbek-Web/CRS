@@ -66,6 +66,14 @@ const resources = {
         dashboard: "Dashboard",
         projects: "Projects",
       },
+      userDetail: {
+        id: "ID",
+        documentNumber: "Document Number",
+        startTime: "Start Time",
+        endTime: "End Time",
+        createdDate: "Created Date",
+        status: "Status",
+      },
     },
   },
   ru: {
@@ -110,7 +118,7 @@ const resources = {
         password: "Пароль",
         placeHolderPassword: "Введите свой пароль...",
         logIn: "Авторизоваться",
-        haveAccount: "У вас уже есть аккаунт?",
+        noAccount: "У вас нет аккаунта?",
         signIn: "Войти",
         login: "Регистрация",
         useCompanyEmails:
@@ -137,6 +145,14 @@ const resources = {
       adminSidebar: {
         dashboard: "Панель управления",
         projects: "Проекты",
+      },
+      userDetail: {
+        id: "Идентификатор",
+        documentNumber: "Номер документа",
+        startTime: "Время начала",
+        endTime: "Конец Времени",
+        createdDate: "Дата создания",
+        status: "Статус",
       },
     },
   },

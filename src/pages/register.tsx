@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import bgImg from "../assets/bg-img.png";
-import { register } from "../services/authService";
 import { useNavigate } from "react-router-dom";
 import Select, { SingleValue } from "react-select";
+
+import bgImg from "../assets/bg-img.png";
 import { LanguageSwitcher } from "../components";
+import { register } from "../services/authService";
 
 interface User {
   email: string;
