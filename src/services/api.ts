@@ -4,7 +4,7 @@ import { getAccessToken } from "../helpers/persistence-storage";
 import { signOut } from "../slices/authSlice";
 import store from "../store";
 
-axios.defaults.baseURL = process.env.BASE_API;
+axios.defaults.baseURL = "https://287d-213-230-87-114.ngrok-free.app/api/v1/";
 
 axios.interceptors.request.use(
   (config) => {

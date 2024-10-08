@@ -23,7 +23,7 @@ function AppRoutes() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    navigate("/register");
+    // navigate("/register");
   }, []);
   return (
     <>

@@ -1,9 +1,6 @@
-import axios from "axios";
-
+import axios from "./api";
 import store from "../store";
 import { signOut } from "../slices/authSlice";
-
-const baseApi = process.env.BASE_API;
 
 interface LoginResponse {
   access: string;
@@ -26,7 +23,7 @@ export const login = async (
   password: string
 ): Promise<LoginResponse> => {
   try {
-    const response = await axios.post(`${baseApi}/login/`, { email, password });
+    const response = await axios.post("/login/", { email, password });
     return response.data;
   } catch (err: any) {
     console.log(err, "xxx");
@@ -37,7 +34,7 @@ export const login = async (
 
 export const register = async (user: User): Promise<any> => {
   try {
-    const response = await axios.post(`${baseApi}/register/`, user);
+    const response = await axios.post("/register/", user);
     return response.data;
   } catch (err) {
     throw err;
@@ -57,7 +54,7 @@ export const logOut = async (
   };
 
   try {
-    const response = await axios.post(`${baseApi}/logout/`, data, { headers });
+    const response = await axios.post("/logout/", data, { headers });
     return response.data;
   } catch (err: any) {
     store.dispatch(signOut());

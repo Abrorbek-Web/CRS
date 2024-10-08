@@ -170,6 +170,7 @@ const userWorks: UserWork[] = [
 // Foydalanuvchilar ro'yxati komponenti
 const Users: React.FC = () => {
   const { t } = useTranslation();
+
   const columns: ColumnsType<UserWork> = [
     { title: t("userDetail.id"), dataIndex: "id", key: "id", width: 60 },
     {
