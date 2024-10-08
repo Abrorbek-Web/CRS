@@ -74,6 +74,22 @@ const resources = {
         createdDate: "Created Date",
         status: "Status",
       },
+      user: {
+        fullName: "Full Name",
+        email: "Email",
+        phone: "Phone",
+        position: "Position",
+      },
+      status: {
+        new: "New",
+        active: "Active",
+        disable: "Disable",
+      },
+      update: {
+        updatePassword: "Update Password",
+        placeHolder: "Enter new password...",
+        save: "Save",
+      },
     },
   },
   ru: {
@@ -134,7 +150,7 @@ const resources = {
       },
       adminPanel: {
         adminPanel: "Панель администратора",
-        id: "Идентификатор",
+        id: "Ид",
         firstName: "Имя",
         lastName: "Фамилия",
         phoneNumber: "Номер телефона",
@@ -147,12 +163,28 @@ const resources = {
         projects: "Проекты",
       },
       userDetail: {
-        id: "Идентификатор",
+        id: "Ид",
         documentNumber: "Номер документа",
         startTime: "Время начала",
         endTime: "Конец Времени",
         createdDate: "Дата создания",
         status: "Статус",
+      },
+      user: {
+        fullName: "Полное имя",
+        email: "Электронная почта",
+        phone: "Телефон",
+        position: "Позиция",
+      },
+      status: {
+        new: "Новый",
+        active: "Активный",
+        disable: "Запрещать",
+      },
+      update: {
+        updatePassword: "Обновить пароль",
+        placeHolder: "Введите новый пароль...",
+        save: "Сохранять",
       },
     },
   },

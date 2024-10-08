@@ -29,6 +29,8 @@ export function UserDetails() {
   const [open, setOpen] = useState<boolean>(false);
   const { id } = useParams<{ id: string }>();
 
+  const { t } = useTranslation();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -78,40 +80,44 @@ export function UserDetails() {
                     onChange={handleChange}
                     className="w-full"
                   >
-                    <Select.Option value="new">New</Select.Option>
-                    <Select.Option value="active">Active</Select.Option>
-                    <Select.Option value="disable">Disable</Select.Option>
+                    <Select.Option value="new">{t("status.new")}</Select.Option>
+                    <Select.Option value="active">
+                      {t("status.active")}
+                    </Select.Option>
+                    <Select.Option value="disable">
+                      {t("status.disable")}
+                    </Select.Option>
                   </Select>
                   <button
                     type="button"
                     onClick={onOpenModal}
                     className="text-gray-900 h-[4rem] text-xs mt-2 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg px-5 py-2.5 me-2 mb-2"
                   >
-                    Update Password
+                    {t("update.updatePassword")}
                   </button>
                 </div>
               </div>
               <div className="w-full p-2 bg-white border border-gray-200 rounded-lg shadow text-sm">
                 <div className="relative border-b py-2">
-                  <p className="font-bold">Full Name</p>
+                  <p className="font-bold">{t("user.fullName")}</p>
                   <p className="absolute top-[7px] left-52 text-gray-600">
                     {user.first_name} {user.last_name}
                   </p>
                 </div>
                 <div className="relative border-b py-2">
-                  <p className="font-bold">Email</p>
+                  <p className="font-bold">{t("user.email")}</p>
                   <p className="absolute top-[7px] left-52 text-gray-600">
                     {user.email}
                   </p>
                 </div>
                 <div className="relative border-b py-2">
-                  <p className="font-bold">Phone</p>
+                  <p className="font-bold">{t("user.phone")}</p>
                   <p className="absolute top-[7px] left-52 text-gray-600">
                     {user.phone_number}
                   </p>
                 </div>
                 <div className="relative border-b py-2">
-                  <p className="font-bold">Position</p>
+                  <p className="font-bold">{t("user.position")}</p>
                   <p className="absolute top-[7px] left-52 text-gray-600">
                     {user.position || "-"}
                   </p>
@@ -124,7 +130,7 @@ export function UserDetails() {
       )}
 
       <Modal
-        title="Password Update"
+        title={t("update.updatePassword")}
         open={open}
         onCancel={onCloseModal}
         footer={null}
@@ -137,14 +143,14 @@ export function UserDetails() {
             <Input.Password
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter new password..."
+              placeholder={t("update.placeHolder")}
               iconRender={(visible) =>
                 visible ? <AiOutlineEyeInvisible /> : <AiOutlineEye />
               }
             />
           </Form.Item>
           <Button type="primary" htmlType="submit" disabled={!password}>
-            Save
+            {t("update.save")}
           </Button>
         </Form>
       </Modal>
