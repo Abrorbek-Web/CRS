@@ -9,10 +9,11 @@ import { LayoutAdmin, AdminPanel, UserDetails, Projects } from "./admin";
 import { useEffect } from "react";
 
 function App() {
-  const navigate = useNavigate();
-  useEffect(() => {
-    navigate("/register");
-  }, []);
+  // const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   navigate("/register");
+  // }, []);
   return (
     <>
       <ToastContainer />

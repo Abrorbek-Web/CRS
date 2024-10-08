@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
-// import { setLanguage } from "../slices/languageSlice"; // Redux slice where we store the language
+// import { setLanguage } from "../slices/languageSlice";
 
 const languages = [
-  { code: "en", name: "English", flag: "https://flagcdn.com/w320/us.png" }, // Amerika bayrog'i
-  { code: "ru", name: "Русский", flag: "https://flagcdn.com/w320/ru.png" }, // Rossiya bayrog'i
+  { code: "en", name: "English", flag: "https://flagcdn.com/w320/us.png" },
+  { code: "ru", name: "Русский", flag: "https://flagcdn.com/w320/ru.png" },
 ];
 
 export function LanguageSwitcher() {
