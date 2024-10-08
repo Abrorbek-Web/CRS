@@ -22,7 +22,7 @@ export function LanguageSwitcher() {
   };
 
   return (
-    <div className="relative inline-block text-left bg-[#c1c1c1]">
+    <div className="relative inline-block text-left">
       <button
         onClick={() => setShowDropdown((prev) => !prev)}
         className="border p-2 rounded-md"
