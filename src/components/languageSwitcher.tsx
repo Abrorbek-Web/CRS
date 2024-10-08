@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useDispatch } from "react-redux";
-// import { setLanguage } from "../slices/languageSlice";
 
 const languages = [
   { code: "en", name: "English", flag: "https://flagcdn.com/w320/us.png" },
@@ -10,15 +8,17 @@ const languages = [
 
 export function LanguageSwitcher() {
   const { i18n } = useTranslation();
-  const dispatch = useDispatch();
-  const initial = localStorage.getItem("i18nextLng");
-  const [selectedLanguage, setSelectedLanguage] = useState<string>("en");
+
+  const initial = localStorage.getItem("i18nextLng") || "en";
+
+  const [selectedLanguage, setSelectedLanguage] = useState<string>(initial);
   const [showDropdown, setShowDropdown] = useState<boolean>(false);
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
     setSelectedLanguage(lng);
-    // dispatch(setLanguage(lng)); // Store the selected language in Redux
+    localStorage.setItem("i18nextLng", lng);
+
     setShowDropdown(false);
   };
 

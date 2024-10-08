@@ -50,7 +50,7 @@ export function Login() {
         setIsLoading(false);
         dispatch(signIn(res));
         toast.success(t("login.loginSuccess"));
-        navigate("/");
+        navigate("/admin");
       })
       .catch((err) => {
         setIsLoading(false);
